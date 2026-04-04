@@ -1,0 +1,12 @@
+{
+  "terminal.integrated.profiles.linux": {
+    "Claude Code (via claude-gh-copilot-relay)": {
+      "args": [
+        "-c",
+        "cd ${workspaceFolder} && npx -y git+https://github.com/kafilio/cenv.git claude --relay 'https://claude-gh-copilot-relay.tail39d2.ts.net'"
+      ],
+      "icon": "copilot",
+      "path": "/bin/bash"
+    }
+  }
+}

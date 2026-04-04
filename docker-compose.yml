@@ -1,0 +1,18 @@
+# managed via ./ops/up (builds image, injects secrets and cleans
+# up the ephemeral .env).  Do not invoke `docker compose` directly.
+name: bifrost
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: "$HOME/.docker-compose.env"
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - tailscale-state:/var/lib/tailscale
+
+volumes:
+  tailscale-state: {}
