@@ -3,34 +3,20 @@
     "providers": {
         "github-copilot": {
             "custom_provider_config": {
-                "allowed_requests": {
-                    "chat_completion": true,
-                    "chat_completion_stream": true,
-                    "list_models": true
-                },
-                "base_provider_type": "openai",
-                "request_path_overrides": {
-                    "chat_completion": "/chat/completions",
-                    "chat_completion_stream": "/chat/completions",
-                    "list_models": "/models"
-                }
+                "base_provider_type": "openai"
             },
             "keys": [
                 {
                     "models": [
-                        "gpt-5-mini",
-                        "oswe-vscode-prime"
+                        "oswe-vscode-prime",
+                        "gpt-5-mini"
                     ],
-                    "name": "github-token",
-                    "value": "env.GITHUB_TOKEN",
-                    "weight": 1.0
+                    "name": "internal-passthrough",
+                    "value": "not-required"
                 }
             ],
             "network_config": {
-                "base_url": "https://api.githubcopilot.com",
-                "extra_headers": {
-                    "Copilot-Integration-Id": "vscode-chat"
-                }
+                "base_url": "https://claude-gh-copilot-relay.tail39d2.ts.net"
             },
             "send_back_raw_request": false,
             "send_back_raw_response": false

@@ -18,8 +18,8 @@ if [ -n "${TAILSCALE_AUTHKEY:-}" ]; then
     hostname="${APP_NAME:-bifrost}"
     tailscale up --authkey "$TAILSCALE_AUTHKEY" \
                  --advertise-tags "tag:$hostname" && \
-        tailscale serve --service "svc:$hostname" --https 443 \
-            http://127.0.0.1:8080
+    tailscale serve --service "svc:$hostname" --https 443 \
+        http://127.0.0.1:8080
 fi
 
 # finally, exec the Copilot relay via npx.  include the GitHub token argument
