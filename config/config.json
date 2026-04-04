@@ -1,0 +1,21 @@
+{
+  "$schema": "https://www.getbifrost.ai/schema",
+  "providers": {
+    "github-copilot": {
+      "keys": [
+        {
+          "name": "github-token",
+          "value": "env.GITHUB_TOKEN",
+          "models": ["*"],
+          "weight": 1.0
+        }
+      ],
+      "network_config": {
+        "base_url": "https://api.githubcopilot.com"
+      },
+      "custom_provider_config": {
+        "base_provider_type": "openai"
+      }
+    }
+  }
+}
