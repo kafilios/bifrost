@@ -1,21 +1,26 @@
 {
-  "$schema": "https://www.getbifrost.ai/schema",
-  "providers": {
-    "github-copilot": {
-      "keys": [
-        {
-          "name": "github-token",
-          "value": "env.GITHUB_TOKEN",
-          "models": ["*"],
-          "weight": 1.0
+    "$schema": "https://www.getbifrost.ai/schema",
+    "providers": {
+        "github-copilot": {
+            "custom_provider_config": {
+                "base_provider_type": "openai"
+            },
+            "keys": [
+                {
+                    "models": [
+                        "*"
+                    ],
+                    "name": "github-token",
+                    "value": "env.GITHUB_TOKEN",
+                    "weight": 1.0
+                }
+            ],
+            "network_config": {
+                "base_url": "https://api.githubcopilot.com",
+                "extra_headers": {
+                    "Copilot-Integration-Id": "vscode-chat"
+                }
+            }
         }
-      ],
-      "network_config": {
-        "base_url": "https://api.githubcopilot.com"
-      },
-      "custom_provider_config": {
-        "base_provider_type": "openai"
-      }
     }
-  }
 }
