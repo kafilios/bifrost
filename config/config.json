@@ -7,19 +7,15 @@
             },
             "keys": [
                 {
-                    "models": [
-                        "oswe-vscode-prime",
-                        "gpt-5-mini"
-                    ],
-                    "name": "internal-passthrough",
-                    "value": "not-required"
+                    "models": [],
+                    "name": "passthrough",
+                    "value": "not-required",
+                    "weight": 1.0
                 }
             ],
             "network_config": {
                 "base_url": "https://claude-gh-copilot-relay.tail39d2.ts.net"
-            },
-            "send_back_raw_request": false,
-            "send_back_raw_response": false
+            }
         },
         "openrouter": {
             "keys": [

@@ -24,6 +24,7 @@ curl https://bifrost.tail39d2.ts.net/v1/chat/completions \
         {"role": "user", "content": "Hello!"}
     ]
 }'
+
 ```
 ## openrouter/qwen/qwen3.6-plus:free
 
