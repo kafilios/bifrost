@@ -24,8 +24,8 @@ curl https://bifrost.tail39d2.ts.net/v1/chat/completions \
         {"role": "user", "content": "Hello!"}
     ]
 }'
-
 ```
+
 ## openrouter/qwen/qwen3.6-plus:free
 
 ```bash
@@ -33,6 +33,19 @@ curl https://bifrost.tail39d2.ts.net/v1/chat/completions \
 --header 'Content-Type: application/json' \
 --data '{
     "model": "openrouter/qwen/qwen3.6-plus:free",
+    "messages": [
+        {"role": "user", "content": "Hello!"}
+    ]
+}'
+```
+
+## xai/grok-4-1-fast-non-reasoning
+
+```bash
+curl https://bifrost.tail39d2.ts.net/v1/chat/completions \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": "xai/grok-4-1-fast-non-reasoning",
     "messages": [
         {"role": "user", "content": "Hello!"}
     ]
