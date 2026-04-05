@@ -20,6 +20,16 @@
             },
             "send_back_raw_request": false,
             "send_back_raw_response": false
+        },
+        "openrouter": {
+            "keys": [
+                {
+                    "models": [],
+                    "name": "openrouter-key",
+                    "value": "env.OPENROUTER_API_KEY",
+                    "weight": 1.0
+                }
+            ]
         }
     }
 }

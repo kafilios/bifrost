@@ -1,0 +1,11 @@
+{
+    "terminal.integrated.profiles.linux": {
+        "Bifrost Logs": {
+            "args": [
+                "-lc",
+                "docker logs -f bifrost-app-1"
+            ],
+            "path": "bash"
+        }
+    }
+}
