@@ -10,7 +10,13 @@
                 "Anthropic.claude-code"
             ],
             "settings": {
-                "remote.autoForwardPorts": false
+                "remote.autoForwardPorts": false,
+                "terminal.integrated.profiles.linux": {
+                    "Claude Code": {
+                        "icon": "copilot",
+                        "path": "claude"
+                    }
+                }
             }
         }
     },
