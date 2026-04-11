@@ -6,6 +6,13 @@
                 "docker logs -f bifrost-app-1"
             ],
             "path": "bash"
+        },
+        "Bifrost Shell": {
+            "args": [
+                "-lc",
+                "docker exec -it bifrost-app-1 /bin/bash"
+            ],
+            "path": "bash"
         }
     }
 }
