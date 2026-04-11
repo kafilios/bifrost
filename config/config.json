@@ -12,6 +12,22 @@
                 "tools_to_execute": [
                     "*"
                 ]
+            },
+            {
+                "connection_type": "stdio",
+                "is_code_mode_client": true,
+                "name": "chromeDevtools",
+                "stdio_config": {
+                    "args": [
+                        "-y",
+                        "chrome-devtools-mcp@latest",
+                        "--ws-endpoint=wss://browserless.tail39d2.ts.net/"
+                    ],
+                    "command": "npx"
+                },
+                "tools_to_execute": [
+                    "*"
+                ]
             }
         ]
     },
