@@ -6,7 +6,9 @@
                 "auth_type": "headers",
                 "connection_string": "https://mcp.jina.ai/v1",
                 "connection_type": "http",
-                "headers": {},
+                "headers": {
+                    "Authorization": "env.JINA_AUTH_HEADER"
+                },
                 "is_code_mode_client": true,
                 "name": "jina",
                 "tools_to_execute": [
@@ -16,7 +18,7 @@
             {
                 "connection_type": "stdio",
                 "is_code_mode_client": true,
-                "name": "chromeDevtools",
+                "name": "browser",
                 "stdio_config": {
                     "args": [
                         "-y",
