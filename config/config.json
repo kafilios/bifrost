@@ -1,5 +1,20 @@
 {
     "$schema": "https://www.getbifrost.ai/schema",
+    "mcp": {
+        "client_configs": [
+            {
+                "auth_type": "headers",
+                "connection_string": "https://mcp.jina.ai/v1",
+                "connection_type": "http",
+                "headers": {},
+                "is_code_mode_client": true,
+                "name": "jina",
+                "tools_to_execute": [
+                    "*"
+                ]
+            }
+        ]
+    },
     "providers": {
         "github-copilot": {
             "custom_provider_config": {
