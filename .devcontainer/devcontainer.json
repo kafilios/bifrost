@@ -13,6 +13,19 @@
                 "remote.autoForwardPorts": false,
                 "terminal.integrated.profiles.linux": {
                     "Claude Code": {
+                        "args": [
+                            "--permission-mode",
+                            "acceptEdits"
+                        ],
+                        "icon": "copilot",
+                        "path": "claude"
+                    },
+                    "Claude Code (Yolo)": {
+                        "args": [
+                            "--dangerously-skip-permissions",
+                            "--permission-mode",
+                            "bypassPermissions"
+                        ],
                         "icon": "copilot",
                         "path": "claude"
                     }
