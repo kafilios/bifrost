@@ -51,3 +51,16 @@ curl https://bifrost.tail39d2.ts.net/v1/chat/completions \
     ]
 }'
 ```
+
+## ollama-cloud/gpt-oss:120b-cloud
+
+```bash
+curl https://bifrost.tail39d2.ts.net/v1/chat/completions \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": "ollama-cloud/gpt-oss:120b-cloud",
+    "messages": [
+        {"role": "user", "content": "Hello!"}
+    ]
+}'
+```
