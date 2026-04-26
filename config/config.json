@@ -1,5 +1,25 @@
 {
     "$schema": "https://www.getbifrost.ai/schema",
+    "governance": {
+        "routing_rules": [
+            {
+                "cel_expression": "model == \"raptor-mini\"",
+                "chain_rule": false,
+                "enabled": true,
+                "id": "raptor-mini",
+                "name": "raptor-mini optimised routing",
+                "priority": 0,
+                "scope": "global",
+                "targets": [
+                    {
+                        "model": "oswe-vscode-prime",
+                        "provider": "github-copilot",
+                        "weight": 1
+                    }
+                ]
+            }
+        ]
+    },
     "mcp": {
         "client_configs": [
             {
