@@ -4,39 +4,32 @@ The repeatable test cases below use the wrapper script at `./scripts/test-hello-
 
 ## github-copilot
 
-### oswe-vscode-prime
-
 ```bash
+# oswe-vscode-prime
 ./scripts/test-hello-word github-copilot oswe-vscode-prime
-```
 
-### gpt-5-mini
-
-```bash
+# gpt-5-mini
 ./scripts/test-hello-word github-copilot gpt-5-mini
 ```
 
 ## openrouter
 
-### qwen/qwen3.6-plus:free
-
 ```bash
+# qwen/qwen3.6-plus:free
 ./scripts/test-hello-word openrouter "qwen/qwen3.6-plus:free"
 ```
 
 ## xai
 
-### grok-4-1-fast-non-reasoning
-
 ```bash
+# grok-4-1-fast-non-reasoning
 ./scripts/test-hello-word xai grok-4-1-fast-non-reasoning
 ```
 
 ## ollama-cloud
 
-### gpt-oss:120b-cloud
-
 ```bash
+# gpt-oss:120b-cloud
 ./scripts/test-hello-word ollama-cloud "gpt-oss:120b-cloud"
 ```
 
@@ -44,21 +37,14 @@ The repeatable test cases below use the wrapper script at `./scripts/test-hello-
 
 Model listing: https://build.nvidia.com/models?filters=nimType%3Anim_type_preview
 
-### minimaxai/minimax-m2.7
-
 ```bash
+# minimaxai/minimax-m2.7
 ./scripts/test-hello-word nvidia minimaxai/minimax-m2.7
-```
 
-### z-ai/glm4.7
-
-```bash
+# z-ai/glm4.7
 ./scripts/test-hello-word nvidia "z-ai/glm4.7"
-```
 
-### qwen/qwen3-coder-480b-a35b-instruct
-
-```bash
+# qwen/qwen3-coder-480b-a35b-instruct
 ./scripts/test-hello-word nvidia "qwen/qwen3-coder-480b-a35b-instruct"
 ```
 
