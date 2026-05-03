@@ -2,31 +2,39 @@
 
 The repeatable test cases below use the wrapper script at `./scripts/test-hello-word`.
 
-## github-copilot/oswe-vscode-prime
+## github-copilot
+
+### oswe-vscode-prime
 
 ```bash
 ./scripts/test-hello-word github-copilot oswe-vscode-prime
 ```
 
-## github-copilot/gpt-5-mini
+### gpt-5-mini
 
 ```bash
 ./scripts/test-hello-word github-copilot gpt-5-mini
 ```
 
-## openrouter/qwen/qwen3.6-plus:free
+## openrouter
+
+### qwen/qwen3.6-plus:free
 
 ```bash
 ./scripts/test-hello-word openrouter "qwen/qwen3.6-plus:free"
 ```
 
-## xai/grok-4-1-fast-non-reasoning
+## xai
+
+### grok-4-1-fast-non-reasoning
 
 ```bash
 ./scripts/test-hello-word xai grok-4-1-fast-non-reasoning
 ```
 
-## ollama-cloud/gpt-oss:120b-cloud
+## ollama-cloud
+
+### gpt-oss:120b-cloud
 
 ```bash
 ./scripts/test-hello-word ollama-cloud "gpt-oss:120b-cloud"
