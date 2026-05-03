@@ -40,6 +40,28 @@ The repeatable test cases below use the wrapper script at `./scripts/test-hello-
 ./scripts/test-hello-word ollama-cloud "gpt-oss:120b-cloud"
 ```
 
+## nvidia
+
+Model listing: https://build.nvidia.com/models?filters=nimType%3Anim_type_preview
+
+### minimaxai/minimax-m2.7
+
+```bash
+./scripts/test-hello-word nvidia minimaxai/minimax-m2.7
+```
+
+### z-ai/glm4.7
+
+```bash
+./scripts/test-hello-word nvidia "z-ai/glm4.7"
+```
+
+### qwen/qwen3-coder-480b-a35b-instruct
+
+```bash
+./scripts/test-hello-word nvidia "qwen/qwen3-coder-480b-a35b-instruct"
+```
+
 ## Raw curl example
 
 ```bash
