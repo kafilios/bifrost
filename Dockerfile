@@ -30,6 +30,8 @@ rules = data.get('governance', {}).get('routing_rules')
 if rules is not None:
     for idx, rule in enumerate(rules):
         rule['priority'] = idx
+        rule['id'] = f'rule-{idx}'
+        rule['name'] = f'rule-{idx}'
 path = pathlib.Path('/root/.config/bifrost/config.json')
 path.write_text(json.dumps(data, indent=2))
 PY

@@ -4,8 +4,6 @@ governance:
     - cel_expression: 'model == "raptor-mini"'
       chain_rule: false
       enabled: true
-      id: raptor-mini
-      name: raptor-mini optimised routing
       scope: global
       targets:
         - model: oswe-vscode-prime
