@@ -21,7 +21,12 @@ The repeatable test cases below use the wrapper script at `./scripts/test-hello-
 
 ## xai
 
+Model listing: https://console.x.ai/team/2c415005-8b4b-4629-abdf-fa839a8e4562/models
+
 ```bash
+# grok-4-1-fast-reasoning
+./scripts/test-hello-word xai grok-4-1-fast-reasoning
+
 # grok-4-1-fast-non-reasoning
 ./scripts/test-hello-word xai grok-4-1-fast-non-reasoning
 ```
