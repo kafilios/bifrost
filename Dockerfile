@@ -22,16 +22,16 @@ RUN set -eux; \
 
 COPY config/config.yaml /root/.config/bifrost/config.yaml
 RUN set -eux; \
-    python3 - <<'PY'; \
-import pathlib, yaml, json; \
-path = pathlib.Path('/root/.config/bifrost/config.yaml'); \
-data = yaml.safe_load(path.read_text()); \
-rules = data.get('governance', {}).get('routing_rules'); \
-if rules is not None: \
-    for idx, rule in enumerate(rules): \
-        rule['priority'] = idx; \
-path = pathlib.Path('/root/.config/bifrost/config.json'); \
-path.write_text(json.dumps(data, indent=2)); \
+    python3 - <<'PY'
+import pathlib, yaml, json
+path = pathlib.Path('/root/.config/bifrost/config.yaml')
+data = yaml.safe_load(path.read_text())
+rules = data.get('governance', {}).get('routing_rules')
+if rules is not None:
+    for idx, rule in enumerate(rules):
+        rule['priority'] = idx
+path = pathlib.Path('/root/.config/bifrost/config.json')
+path.write_text(json.dumps(data, indent=2))
 PY
 
 # Copy entrypoint script
