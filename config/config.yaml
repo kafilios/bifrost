@@ -60,6 +60,16 @@ providers:
         name: openrouter-key
         value: env.OPENROUTER_API_KEY
         weight: 1.0
+  nvidia:
+    custom_provider_config:
+      base_provider_type: openai
+    keys:
+      - models: []
+        name: nvidia-key
+        value: env.NVIDIA_API_KEY
+        weight: 1.0
+    network_config:
+      base_url: https://integrate.api.nvidia.com
   xai:
     keys:
       - models: []
