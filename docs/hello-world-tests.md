@@ -15,8 +15,8 @@ The repeatable test cases below use the wrapper script at `./scripts/test-hello-
 ## openrouter
 
 ```bash
-# qwen/qwen3.6-plus:free
-./scripts/test-hello-word openrouter "qwen/qwen3.6-plus:free"
+# qwen/qwen3-coder:free
+./scripts/test-hello-word openrouter "qwen/qwen3-coder:free"
 ```
 
 ## xai

@@ -1,7 +1,31 @@
 $schema: "https://www.getbifrost.ai/schema"
 governance:
   routing_rules:
-    - cel_expression: 'model == "raptor-mini"'
+    - cel_expression: 'model == "auto"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: oswe-vscode-prime
+          provider: github-copilot
+          weight: 1
+    - cel_expression: 'model == "auto-code"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: oswe-vscode-prime
+          provider: github-copilot
+          weight: 1
+    - cel_expression: 'model == "auto-reason"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: oswe-vscode-prime
+          provider: github-copilot
+          weight: 1
+    - cel_expression: 'model == "auto-agent"'
       chain_rule: false
       enabled: true
       scope: global
