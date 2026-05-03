@@ -9,7 +9,7 @@ RUN set -eux; \
     # configure timezone before installing tzdata
     echo "Australia/Melbourne" > /etc/timezone; \
     ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime; \
-    apt-get install -y --no-install-recommends curl ca-certificates tzdata; \
+    apt-get install -y --no-install-recommends curl ca-certificates tzdata python3 python3-yaml; \
     # install Node.js LTS
     curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -; \
     apt-get update; \
@@ -20,7 +20,19 @@ RUN set -eux; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 
-COPY config/config.json /root/.config/bifrost/config.json
+COPY config/config.yaml /root/.config/bifrost/config.yaml
+RUN set -eux; \
+    python3 - <<'PY'; \
+import pathlib, yaml, json; \
+path = pathlib.Path('/root/.config/bifrost/config.yaml'); \
+data = yaml.safe_load(path.read_text()); \
+rules = data.get('governance', {}).get('routing_rules'); \
+if rules is not None: \
+    for idx, rule in enumerate(rules): \
+        rule['priority'] = idx; \
+path = pathlib.Path('/root/.config/bifrost/config.json'); \
+path.write_text(json.dumps(data, indent=2)); \
+PY
 
 # Copy entrypoint script
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
