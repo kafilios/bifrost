@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -ne 2 ]; then
+  cat <<EOF >&2
+Usage: $0 PROVIDER MODEL_NAME
+
+Example:
+  $0 github-copilot oswe-vscode-prime
+  $0 openrouter "qwen/qwen3.6-plus:free"
+EOF
+  exit 1
+fi
+
+if ! command -v jq >/dev/null 2>&1; then
+  echo "error: jq is required for output formatting" >&2
+  exit 1
+fi
+
+provider=$1
+model_name=$2
+model="${provider}/${model_name}"
+endpoint="https://bifrost.tail39d2.ts.net/v1/chat/completions"
+
+payload=$(python3 - "$model" <<'PY'
+import json, sys
+model = sys.argv[1]
+print(json.dumps({
+    'model': model,
+    'messages': [
+        {'role': 'user', 'content': 'Hello!'}
+    ]
+}))
+PY
+)
+
+curl -sS -X POST "$endpoint" \
+  -H 'Content-Type: application/json' \
+  -d "$payload" | jq .
