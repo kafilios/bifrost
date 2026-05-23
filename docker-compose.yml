@@ -6,7 +6,15 @@ services:
   app:
     build: .
     restart: unless-stopped
-    env_file: "$HOME/.docker-compose.env"
+    environment:
+      - APP_NAME
+      - APP_NPX_PACKAGE
+      - TAILSCALE_AUTHKEY
+      - JINA_AUTH_HEADER
+      - NVIDIA_API_KEY
+      - OLLAMA_API_KEY
+      - OPENROUTER_API_KEY
+      - XAI_API_KEY
     cap_add:
       - NET_ADMIN
     devices:
