@@ -15,20 +15,19 @@
                     "Claude Code": {
                         "args": [
                             "--permission-mode",
-                            "acceptEdits"
+                            "auto"
                         ],
                         "icon": "copilot",
                         "path": "claude"
                     },
-                    "Claude Code (Yolo)": {
+                    "Claude Code (Agent view)": {
                         "args": [
-                            "--dangerously-skip-permissions",
-                            "--permission-mode",
-                            "bypassPermissions"
+                            "agents"
                         ],
                         "icon": "copilot",
                         "path": "claude"
-                    }
+                    },
+                    "GitHub Copilot CLI": null
                 }
             }
         }
