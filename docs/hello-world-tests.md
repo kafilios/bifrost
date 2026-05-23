@@ -31,6 +31,18 @@ Model listing: https://console.x.ai/team/2c415005-8b4b-4629-abdf-fa839a8e4562/mo
 ./scripts/test-hello-word xai grok-build-0.1
 ```
 
+## deepseek
+
+Model listing: https://api-docs.deepseek.com/quick_start/pricing/
+
+```bash
+# deepseek-v4-flash
+./scripts/test-hello-word deepseek deepseek-v4-flash
+
+# deepseek-v4-pro
+./scripts/test-hello-word deepseek deepseek-v4-pro
+```
+
 ## ollama-cloud
 
 ```bash

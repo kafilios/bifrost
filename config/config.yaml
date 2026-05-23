@@ -57,6 +57,17 @@ mcp:
       tools_to_execute:
         - "*"
 providers:
+  deepseek:
+    custom_provider_config:
+      base_provider_type: openai
+    keys:
+      - models: 
+          - '*'
+        name: deepseek-key
+        value: env.DEEPSEEK_API_KEY
+        weight: 1.0
+    network_config:
+      base_url: https://api.deepseek.com
   github-copilot:
     custom_provider_config:
       base_provider_type: openai
