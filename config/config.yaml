@@ -6,7 +6,7 @@ governance:
       enabled: true
       scope: global
       targets:
-        - model: grok-4-1-fast-reasoning
+        - model: grok-4.3
           provider: xai
           weight: 1
     - cel_expression: 'model == "auto-code"'
@@ -14,7 +14,7 @@ governance:
       enabled: true
       scope: global
       targets:
-        - model: grok-4-1-fast-reasoning
+        - model: grok-build-0.1
           provider: xai
           weight: 1
     - cel_expression: 'model == "auto-reason"'
@@ -22,7 +22,7 @@ governance:
       enabled: true
       scope: global
       targets:
-        - model: grok-4-1-fast-reasoning
+        - model: grok-4.3
           provider: xai
           weight: 1
     - cel_expression: 'model == "auto-agent"'
@@ -30,7 +30,7 @@ governance:
       enabled: true
       scope: global
       targets:
-        - model: grok-4-1-fast-reasoning
+        - model: grok-4.3
           provider: xai
           weight: 1
 mcp:
