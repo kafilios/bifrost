@@ -15,7 +15,7 @@ governance:
       enabled: true
       scope: global
       targets:
-        - model: grok-build-0.1
+        - model: grok-4.3
           provider: xai
           weight: 1
     - cel_expression: 'model == "auto-reason"'
