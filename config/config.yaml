@@ -60,7 +60,7 @@ providers:
     custom_provider_config:
       base_provider_type: openai
     keys:
-      - models: []
+      - models: ['*']
         name: passthrough
         value: not-required
         weight: 1.0
@@ -70,7 +70,7 @@ providers:
     custom_provider_config:
       base_provider_type: openai
     keys:
-      - models: []
+      - models: ['*']
         name: ollama-cloud-key
         value: env.OLLAMA_API_KEY
         weight: 1.0
@@ -78,7 +78,7 @@ providers:
       base_url: https://ollama.com
   openrouter:
     keys:
-      - models: []
+      - models: ['*']
         name: openrouter-key
         value: env.OPENROUTER_API_KEY
         weight: 1.0
@@ -86,7 +86,7 @@ providers:
     custom_provider_config:
       base_provider_type: openai
     keys:
-      - models: []
+      - models: ['*']
         name: nvidia-key
         value: env.NVIDIA_API_KEY
         weight: 1.0
@@ -94,7 +94,7 @@ providers:
       base_url: https://integrate.api.nvidia.com
   xai:
     keys:
-      - models: []
+      - models: ['*']
         name: xai-key
         value: env.XAI_API_KEY
         weight: 1.0
