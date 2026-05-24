@@ -2,15 +2,7 @@ $schema: "https://www.getbifrost.ai/schema"
 client:
 governance:
   routing_rules:
-    - cel_expression: 'model == "auto"'
-      chain_rule: false
-      enabled: true
-      scope: global
-      targets:
-        - model: grok-4.3
-          provider: xai
-          weight: 1
-    - cel_expression: 'model == "auto-code"'
+    - cel_expression: 'model == "grok-4.3"'
       chain_rule: false
       enabled: true
       scope: global
