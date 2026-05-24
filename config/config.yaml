@@ -18,22 +18,6 @@ governance:
         - model: grok-4.3
           provider: xai
           weight: 1
-    - cel_expression: 'model == "auto-reason"'
-      chain_rule: false
-      enabled: true
-      scope: global
-      targets:
-        - model: grok-4.3
-          provider: xai
-          weight: 1
-    - cel_expression: 'model == "auto-agent"'
-      chain_rule: false
-      enabled: true
-      scope: global
-      targets:
-        - model: grok-4.3
-          provider: xai
-          weight: 1
 mcp:
   client_configs:
     - auth_type: headers
