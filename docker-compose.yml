@@ -9,12 +9,13 @@ services:
     environment:
       - APP_NAME
       - APP_NPX_PACKAGE
-      - TAILSCALE_AUTHKEY
-      - JINA_AUTH_HEADER
       - DEEPSEEK_API_KEY
+      - JINA_AUTH_HEADER
+      - MINIMAX_API_KEY
       - NVIDIA_API_KEY
       - OLLAMA_API_KEY
       - OPENROUTER_API_KEY
+      - TAILSCALE_AUTHKEY
       - XAI_API_KEY
     cap_add:
       - NET_ADMIN

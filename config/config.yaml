@@ -10,6 +10,22 @@ governance:
         - model: grok-4.3
           provider: xai
           weight: 1
+    - cel_expression: 'model == "minimax-m2.7"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
+    - cel_expression: 'model == "minimax-m2.5"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.5
+          provider: minimax
+          weight: 1
 mcp:
   client_configs:
     - auth_type: headers
@@ -55,6 +71,17 @@ providers:
         weight: 1.0
     network_config:
       base_url: https://claude-gh-copilot-relay.tail39d2.ts.net
+  minimax:
+    custom_provider_config:
+      base_provider_type: openai
+    keys:
+      - models: 
+          - '*'
+        name: minimax-key
+        value: env.MINIMAX_API_KEY
+        weight: 1.0
+    network_config:
+      base_url: https://api.minimax.io
   ollama-cloud:
     custom_provider_config:
       base_provider_type: openai
