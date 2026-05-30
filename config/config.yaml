@@ -73,7 +73,7 @@ providers:
       base_url: https://claude-gh-copilot-relay.tail39d2.ts.net
   minimax:
     custom_provider_config:
-      base_provider_type: openai
+      base_provider_type: anthropic
     keys:
       - models: 
           - '*'
@@ -81,7 +81,7 @@ providers:
         value: env.MINIMAX_API_KEY
         weight: 1.0
     network_config:
-      base_url: https://api.minimax.io
+      base_url: https://api.minimax.io/anthropic
   ollama-cloud:
     custom_provider_config:
       base_provider_type: openai
