@@ -2,16 +2,6 @@
 
 The repeatable test cases below use the wrapper script at `./scripts/test-hello-word`.
 
-## github-copilot
-
-```bash
-# oswe-vscode-prime
-./scripts/test-hello-word github-copilot oswe-vscode-prime
-
-# gpt-5-mini
-./scripts/test-hello-word github-copilot gpt-5-mini
-```
-
 ## openrouter
 
 ```bash
@@ -68,7 +58,7 @@ Model listing: https://build.nvidia.com/models?filters=nimType%3Anim_type_previe
 
 ```bash
 # minimaxai/minimax-m2.7
-./scripts/test-hello-word nvidia minimaxai/minimax-m2.7
+./scripts/test-hello-word nvidia "minimaxai/minimax-m2.7"
 
 # z-ai/glm4.7
 ./scripts/test-hello-word nvidia "z-ai/glm4.7"
@@ -83,7 +73,7 @@ Model listing: https://build.nvidia.com/models?filters=nimType%3Anim_type_previe
 curl https://bifrost.tail39d2.ts.net/v1/chat/completions \
 --header 'Content-Type: application/json' \
 --data '{
-    "model": "github-copilot/oswe-vscode-prime",
+    "model": "nvidia/minimaxai/minimax-m2.7",
     "messages": [
         {"role": "user", "content": "Hello!"}
     ]

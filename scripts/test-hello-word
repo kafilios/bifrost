@@ -6,7 +6,7 @@ if [ "$#" -ne 2 ]; then
 Usage: $0 PROVIDER MODEL_NAME
 
 Example:
-  $0 github-copilot oswe-vscode-prime
+  $0 nvidia "minimaxai/minimax-m2.7"
   $0 openrouter "qwen/qwen3.6-plus:free"
 EOF
   exit 1
