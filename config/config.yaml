@@ -1,5 +1,9 @@
 $schema: "https://www.getbifrost.ai/schema"
 client:
+  allowed_origins:
+    - "*"
+  allowed_headers:
+    - "*"
 governance:
   routing_rules:
     - cel_expression: 'model.startsWith("claude-opus")'
