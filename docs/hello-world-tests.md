@@ -38,11 +38,11 @@ Model listing: https://api-docs.deepseek.com/quick_start/pricing/
 Model listing: https://platform.minimax.io/docs/guides/models-intro
 
 ```bash
+# minimax-m3
+./scripts/test-hello-word minimax minimax-m3
+
 # minimax-m2.7
 ./scripts/test-hello-word minimax minimax-m2.7
-
-# minimax-m2.5
-./scripts/test-hello-word minimax minimax-m2.5
 ```
 
 ## ollama-cloud
