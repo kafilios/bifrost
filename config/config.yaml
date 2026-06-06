@@ -2,7 +2,7 @@ $schema: "https://www.getbifrost.ai/schema"
 client:
 governance:
   routing_rules:
-    - cel_expression: 'model == "claude-opus-4-7"'
+    - cel_expression: 'model.startsWith("claude-opus")'
       chain_rule: false
       enabled: true
       scope: global
@@ -10,7 +10,15 @@ governance:
         - model: minimax-m3
           provider: minimax
           weight: 1
-    - cel_expression: 'model == "claude-sonnet-4-6"'
+    - cel_expression: 'model.startsWith("claude-sonnet")'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
+    - cel_expression: 'model.startsWith("claude-haiku")'
       chain_rule: false
       enabled: true
       scope: global
