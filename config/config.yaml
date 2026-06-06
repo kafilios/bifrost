@@ -1,7 +1,23 @@
 $schema: "https://www.getbifrost.ai/schema"
 client:
 governance:
-  routing_rules: []
+  routing_rules:
+    - cel_expression: 'model == "claude-opus-4-7"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m3
+          provider: minimax
+          weight: 1
+    - cel_expression: 'model == "claude-sonnet-4-6"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
 mcp:
   client_configs:
     - auth_type: headers
