@@ -6,7 +6,7 @@ client:
     - "*"
 governance:
   routing_rules:
-    - cel_expression: 'model.startsWith("claude-opus")'
+    - cel_expression: 'model.contains("claude-fable")'
       chain_rule: false
       enabled: true
       scope: global
@@ -14,7 +14,15 @@ governance:
         - model: minimax-m3
           provider: minimax
           weight: 1
-    - cel_expression: 'model.startsWith("claude-sonnet")'
+    - cel_expression: 'model.contains("claude-opus")'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m3
+          provider: minimax
+          weight: 1
+    - cel_expression: 'model.contains("claude-sonnet")'
       chain_rule: false
       enabled: true
       scope: global
@@ -22,7 +30,15 @@ governance:
         - model: minimax-m2.7
           provider: minimax
           weight: 1
-    - cel_expression: 'model.startsWith("claude-haiku")'
+    - cel_expression: 'model.contains("claude-haiku")'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
+    - cel_expression: 'model.contains("claude-3-haiku")'
       chain_rule: false
       enabled: true
       scope: global
