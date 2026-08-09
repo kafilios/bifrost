@@ -6,7 +6,7 @@ client:
     - "*"
 governance:
   routing_rules:
-    - cel_expression: 'complexity_tier in ["COMPLEX", "REASONING"]'
+    - cel_expression: 'model.contains("auto") && complexity_tier in ["COMPLEX", "REASONING"]'
       chain_rule: false
       enabled: true
       scope: global
@@ -14,7 +14,15 @@ governance:
         - model: minimax-m3
           provider: minimax
           weight: 1
-    - cel_expression: 'complexity_tier in ["SIMPLE", "MEDIUM"]'
+    - cel_expression: 'model.contains("auto") && complexity_tier in ["SIMPLE", "MEDIUM"]'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
+    - cel_expression: 'model.contains("auto")'
       chain_rule: false
       enabled: true
       scope: global
