@@ -6,6 +6,22 @@ client:
     - "*"
 governance:
   routing_rules:
+    - cel_expression: 'complexity_tier in ["COMPLEX", "REASONING"]'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m3
+          provider: minimax
+          weight: 1
+    - cel_expression: 'complexity_tier in ["SIMPLE", "MEDIUM"]'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
     - cel_expression: 'model.contains("claude-fable")'
       chain_rule: false
       enabled: true
