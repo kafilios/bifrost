@@ -20,13 +20,6 @@
                         "icon": "claude",
                         "path": "/usr/local/bin/vscode-terminal-claude-code"
                     },
-                    "Claude Code (Agent view)": {
-                        "args": [
-                            "agents"
-                        ],
-                        "icon": "claude",
-                        "path": "/usr/local/bin/vscode-terminal-claude-code"
-                    },
                     "GitHub Copilot CLI": null
                 }
             }
