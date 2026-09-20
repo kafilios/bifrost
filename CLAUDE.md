@@ -58,6 +58,12 @@ docker --context exit-au-oci compose build
 or, if you prefer, `docker build` directly from the `Dockerfile`.  The
 `Dockerfile` is very simple and can be inspected when diagnosing build issues.
 
+## Sandbox note
+
+`git` (and other bwrap-based tools) fail in this devcontainer with
+`bwrap: capset failed: Operation not permitted`. Prefix git commands
+with `dangerouslyDisableSandbox: true` on the Bash tool call.
+
 No `make`, `npm`, or test commands exist – just edit the shell scripts or
 compose file as needed.
 
@@ -67,6 +73,8 @@ compose file as needed.
 /Dockerfile            # image build instructions
 /entrypoint.sh         # runtime script run inside the container
 /docker-compose.yml    # describes the service used by helpers
+/config/config.yaml    # Bifrost governance config: routing rules, providers,
+                       # complexity analyzer (semantic + LLM tier classifier)
 /.env.template         # secret placeholders injected by ./up
 /up            # wrapper that runs op inject + compose up
 /down          # wrapper that composes down
