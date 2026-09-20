@@ -65,15 +65,6 @@ governance:
         - "architect a publishing pipeline that takes a markdown draft, runs editorial review, generates PDFs and HTML, and syncs to the website."
         - "build an intranet portal that combines a wiki, document library, employee directory, and announcement feed."
   routing_rules:
-    - id: auto-reasoning
-      cel_expression: 'model.contains("auto") && complexity_tier == "REASONING"'
-      chain_rule: false
-      enabled: true
-      scope: global
-      targets:
-        - model: minimax-m3
-          provider: minimax
-          weight: 1
     - id: auto-complex
       cel_expression: 'model.contains("auto") && complexity_tier == "COMPLEX"'
       chain_rule: false
