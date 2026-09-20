@@ -6,7 +6,8 @@ client:
     - "*"
 governance:
   routing_rules:
-    - cel_expression: 'model.contains("auto") && complexity_tier in ["COMPLEX", "REASONING"]'
+    - id: auto-reasoning
+      cel_expression: 'model.contains("auto") && complexity_tier == "REASONING"'
       chain_rule: false
       enabled: true
       scope: global
@@ -14,23 +15,8 @@ governance:
         - model: minimax-m3
           provider: minimax
           weight: 1
-    - cel_expression: 'model.contains("auto") && complexity_tier in ["SIMPLE", "MEDIUM"]'
-      chain_rule: false
-      enabled: true
-      scope: global
-      targets:
-        - model: minimax-m2.7
-          provider: minimax
-          weight: 1
-    - cel_expression: 'model.contains("auto")'
-      chain_rule: false
-      enabled: true
-      scope: global
-      targets:
-        - model: minimax-m2.7
-          provider: minimax
-          weight: 1
-    - cel_expression: 'model.contains("claude-fable")'
+    - id: auto-complex
+      cel_expression: 'model.contains("auto") && complexity_tier == "COMPLEX"'
       chain_rule: false
       enabled: true
       scope: global
@@ -38,7 +24,35 @@ governance:
         - model: minimax-m3
           provider: minimax
           weight: 1
-    - cel_expression: 'model.contains("claude-opus")'
+    - id: auto-medium
+      cel_expression: 'model.contains("auto") && complexity_tier == "MEDIUM"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
+    - id: auto-simple
+      cel_expression: 'model.contains("auto") && complexity_tier == "SIMPLE"'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
+    - id: auto-fallback
+      cel_expression: 'model.contains("auto")'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m2.7
+          provider: minimax
+          weight: 1
+    - id: reroute-claude-fable
+      cel_expression: 'model.contains("claude-fable")'
       chain_rule: false
       enabled: true
       scope: global
@@ -46,7 +60,17 @@ governance:
         - model: minimax-m3
           provider: minimax
           weight: 1
-    - cel_expression: 'model.contains("claude-sonnet")'
+    - id: reroute-claude-opus
+      cel_expression: 'model.contains("claude-opus")'
+      chain_rule: false
+      enabled: true
+      scope: global
+      targets:
+        - model: minimax-m3
+          provider: minimax
+          weight: 1
+    - id: reroute-claude-sonnet
+      cel_expression: 'model.contains("claude-sonnet")'
       chain_rule: false
       enabled: true
       scope: global
@@ -54,15 +78,8 @@ governance:
         - model: minimax-m2.7
           provider: minimax
           weight: 1
-    - cel_expression: 'model.contains("claude-haiku")'
-      chain_rule: false
-      enabled: true
-      scope: global
-      targets:
-        - model: minimax-m2.7
-          provider: minimax
-          weight: 1
-    - cel_expression: 'model.contains("claude-3-haiku")'
+    - id: reroute-claude-haiku
+      cel_expression: 'model.contains("claude-haiku") || model.contains("claude-3-haiku")'
       chain_rule: false
       enabled: true
       scope: global
