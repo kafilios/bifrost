@@ -5,6 +5,33 @@ client:
   allowed_headers:
     - "*"
 governance:
+  complexity_analyzer_config:
+    semantic:
+      provider: nvidia
+      embedding_model: nvidia/nemotron-3-embed-1b
+      timeout: 1.5s
+      min_similarity: 0
+      message_history_count: 1
+      count_toward_budgets: false
+      vector_store: embedded
+      fallback: llm
+    llm:
+      provider: minimax
+      model: minimax-m2.7
+      timeout: 4s
+      prompt: ""
+      message_history_count: 1
+      count_toward_budgets: false
+    session:
+      enabled: true
+    keywords:
+      simple_keywords:
+        - "what is a mutex?"
+        - "fix the grammar in this sentence."
+      medium_keywords:
+        - "add api-key auth: hash the keys, reject revoked ones, and never log them."
+      complex_keywords:
+        - "balance testing, prescribing rules, and staffing against rising resistant infections."
   routing_rules:
     - id: auto-reasoning
       cel_expression: 'model.contains("auto") && complexity_tier == "REASONING"'
