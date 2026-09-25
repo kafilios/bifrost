@@ -102,7 +102,7 @@ governance:
           provider: minimax
           weight: 1
     - id: claude-compat-minimax-m3
-      cel_expression: 'model.contains("claude-opus-minimax-m3")'
+      cel_expression: 'model.contains("claude-mx-m3")'
       chain_rule: false
       enabled: true
       scope: global
@@ -111,7 +111,7 @@ governance:
           provider: minimax
           weight: 1
     - id: claude-compat-minimax-m2.7
-      cel_expression: 'model.contains("claude-sonnet-minimax-m2.7")'
+      cel_expression: 'model.contains("claude-mx-m2_7")'
       chain_rule: false
       enabled: true
       scope: global
