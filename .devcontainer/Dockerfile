@@ -28,17 +28,24 @@ USER root
 # dbxcli has no Homebrew formula — install the pinned release binary from
 # GitHub so bin/deploy works inside the container. Matches the pin used by
 # bin/refresh-dbxcli-token (v3.7.3).
-ARG DBXCLI_VERSION=3.7.3
+#
+# Integrity is pinned per-architecture with SHA256 checksums fetched from
+# the same Dropbox release. The expected digests are embedded below; the
+# `dbxcli version` call is kept only as a sanity check, not the integrity gate.
 RUN set -eux; \
   arch="$(dpkg --print-architecture)"; \
   case "$arch" in \
-    amd64|arm64) ;; \
+    amd64) url="https://github.com/dropbox/dbxcli/releases/download/v3.7.3/dbxcli_3.7.3_linux_amd64.tar.gz"; \
+           expected="fee977ce4144174356cd7d1bae0b546aecad2570f14666bd44417e96af943484" ;; \
+    arm64) url="https://github.com/dropbox/dbxcli/releases/download/v3.7.3/dbxcli_3.7.3_linux_arm64.tar.gz"; \
+           expected="9d654da62a1ac10c9e32ee8f66fa6cc8d88ed29bc95555435a5ce4255eb4b96a" ;; \
     *) echo "Unsupported architecture for dbxcli: $arch" >&2; exit 1 ;; \
   esac; \
-  curl -fsSL -o /tmp/dbxcli.tar.gz \
-    "https://github.com/dropbox/dbxcli/releases/download/v${DBXCLI_VERSION}/dbxcli_${DBXCLI_VERSION}_linux_${arch}.tar.gz"; \
+  curl -fsSL -o /tmp/dbxcli.tar.gz "$url"; \
+  actual="$(sha256sum /tmp/dbxcli.tar.gz | awk '{print $1}')"; \
+  [ "$actual" = "$expected" ] || { echo "dbxcli checksum mismatch: got $actual, want $expected" >&2; exit 1; }; \
   tar -xz -C /tmp --strip-components=1 \
-    -f /tmp/dbxcli.tar.gz "dbxcli_${DBXCLI_VERSION}_linux_${arch}/dbxcli"; \
+    -f /tmp/dbxcli.tar.gz "dbxcli_3.7.3_linux_${arch}/dbxcli"; \
   install -m 0755 /tmp/dbxcli /usr/local/bin/dbxcli; \
   rm -f /tmp/dbxcli /tmp/dbxcli.tar.gz; \
   /usr/local/bin/dbxcli version
