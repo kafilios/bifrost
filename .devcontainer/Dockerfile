@@ -18,12 +18,30 @@ RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/instal
   && echo >> /home/vscode/.bashrc \
   && echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/vscode/.bashrc \
   && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)" \
-  && /home/linuxbrew/.linuxbrew/bin/brew install docker docker-compose docker-buildx node wget curl jq gnupg git-secret socat yq gh 1password-cli claude-code \
+  && /home/linuxbrew/.linuxbrew/bin/brew install docker docker-compose docker-buildx node wget curl jq gnupg git-secret socat yq gh 1password-cli claude-code php composer pandoc \
   && docker context create exit-au-oci --docker "host=ssh://docker@exit-au-oci" \
   && mkdir -p /home/vscode/.docker/cli-plugins \
   && ln -sf /home/linuxbrew/.linuxbrew/bin/docker-compose /home/vscode/.docker/cli-plugins/docker-compose \
   && ln -sf /home/linuxbrew/.linuxbrew/bin/docker-buildx /home/vscode/.docker/cli-plugins/docker-buildx
 USER root
+
+# dbxcli has no Homebrew formula — install the pinned release binary from
+# GitHub so bin/deploy works inside the container. Matches the pin used by
+# bin/refresh-dbxcli-token (v3.7.3).
+ARG DBXCLI_VERSION=3.7.3
+RUN set -eux; \
+  arch="$(dpkg --print-architecture)"; \
+  case "$arch" in \
+    amd64|arm64) ;; \
+    *) echo "Unsupported architecture for dbxcli: $arch" >&2; exit 1 ;; \
+  esac; \
+  curl -fsSL -o /tmp/dbxcli.tar.gz \
+    "https://github.com/dropbox/dbxcli/releases/download/v${DBXCLI_VERSION}/dbxcli_${DBXCLI_VERSION}_linux_${arch}.tar.gz"; \
+  tar -xz -C /tmp --strip-components=1 \
+    -f /tmp/dbxcli.tar.gz "dbxcli_${DBXCLI_VERSION}_linux_${arch}/dbxcli"; \
+  install -m 0755 /tmp/dbxcli /usr/local/bin/dbxcli; \
+  rm -f /tmp/dbxcli /tmp/dbxcli.tar.gz; \
+  /usr/local/bin/dbxcli version
 
 RUN set -eux; \
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"; \
