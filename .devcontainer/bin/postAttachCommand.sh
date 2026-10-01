@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# postAttachCommand dispatcher — runs every .sh in postAttachCommand.d/ in priority order (00-99).
 
 set -euo pipefail
 
@@ -25,6 +24,7 @@ if [ ! -d "$POST_ATTACH_D" ]; then
   exit 0
 fi
 
+# Scripts run in lexicographic order by their 00-99 prefix.
 for script in "$POST_ATTACH_D"/*.sh; do
   [ -e "$script" ] || continue
   log INFO "running $(basename "$script")"

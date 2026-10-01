@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Default the docker CLI to the exit-au-oci context for this shell.
 
 set -euo pipefail
 

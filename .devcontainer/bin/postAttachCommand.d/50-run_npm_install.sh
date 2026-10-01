@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Run npm install if the workspace has a package.json.
 
 set -euo pipefail
 

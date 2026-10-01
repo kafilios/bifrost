@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
-# push-template: sync .devcontainer from this repo into kafilios/devcontainer-template
-#
-# Workflow:
-#   1. Shallow-clone DEVCONTAINER_TEMPLATE_REPO (default: kafilios/devcontainer-template)
-#   2. Replace its .devcontainer/ with this repo's .devcontainer/
-#   3. Commit and push (no-op if the contents are already identical)
-#   4. Clean up the temp working directory on exit
+# push-template: sync this repo's .devcontainer into kafilios/devcontainer-template.
+# Override the target with DEVCONTAINER_TEMPLATE_REPO=<git-url>.
 
 set -euo pipefail
 

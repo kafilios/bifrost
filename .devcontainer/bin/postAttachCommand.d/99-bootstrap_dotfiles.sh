@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Bootstrap dotfiles from DOTFILES_GIT_URL via npx (auto-runs the package's
-# `bin` entry, conventionally script/bootstrap).
 
 set -euo pipefail
 
